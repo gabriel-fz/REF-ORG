@@ -1,37 +1,4 @@
 {
-  "referencias": [
-    {
-      "id": "1",
-      "text": "FIORESE2, G. F. Primeiro teste de referências para o banco de dados."
-    },
-    {
-      "id": "2",
-      "text": "FIORESE, G. F. Primeiro teste de referências para o banco de dados"
-    },
-    {
-      "id": "3",
-      "text": "SENA, T. T. O.; SOUZA A. A. Causas de dificuldades no Ensino-Aprendizagem de Cálculo diferencial e integral na perspectiva dos alunos e dos professores do curso de matemática da UFAL – Campus de Arapiraca, 2015."
-    },
-    {
-      "id": "4",
-      "text": "SANTANA, B. M. S.; SILVA, M. A. A. Ensino e aprendizagem de Cálculo: A partir do uso de softwares matemáticos. Editora realize, III Conedu – Congresso Nacional de Educação, 2016."
-    }
-  ],
-  "citacoes": [
-    {
-      "id": "1",
-      "textCitacao": "Teste referencia aqui",
-      "textReferencia": "Teste citação aqui"
-    },
-    {
-      "id": "1",
-      "textCitacao": "Uma citação bonita aqui",
-      "textReferencia": "SANTANA, B. M. S.; SILVA, M. A. A. Ensino e aprendizagem de Cálculo: A partir do uso de softwares matemáticos. Editora realize, III Conedu – Congresso Nacional de Educação, 2016."
-    },
-    {
-      "id": "3",
-      "textCitacao": "Referência da citação aqui",
-      "textReferencia": "Citação muito bonita aqui"
-    }
-  ]
+  "referencias": [],
+  "citacoes": []
 }
