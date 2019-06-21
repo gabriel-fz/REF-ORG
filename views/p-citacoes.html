@@ -40,43 +40,21 @@
           <div role="conteudo" class="col-9">
             <div class="container">
               <h3 class="mt-3">Adicionar referência</h3>
-                  <form class="text-center">
-                    <div class="form-group">
-                      <textarea class="form-control mt-2" id="txtReferenciac" rows="3" placeholder="Digite a citação aqui"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <textarea class="form-control mt-2" id="txtCitacao" rows="2" placeholder="Digite a referência da citação aqui"></textarea>
-                    </div>
-                    <button class="btn btn-one btn-lg" onclick="adicionarCitacoes()">Adicionar</button>
-                  </form>
-
+              <form class="text-center">
+                <div class="form-group">
+                  <textarea class="form-control mt-2" id="txtReferenciac" rows="3"
+                    placeholder="Digite a citação aqui"></textarea>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control mt-2" id="txtCitacao" rows="2"
+                    placeholder="Digite a referência da citação aqui"></textarea>
+                </div>
+                <button class="btn btn-one btn-lg" onclick="adicionarCitacoes()">Adicionar</button>
+              </form>
 
               <h3 class="mt-3">Citações</h3>
 
               <div id="citacoes"></div>
-
-              <div class="card my-2">
-                <div class="row no-gutters">
-                  <div class="col-2 texto-centro">
-                    <button class="btn btn-two btn-lg mx-2" data-toggle="modal" ><i class="fas fa-pen fa-sm"></i></button>
-                    <button class="btn btn-two btn-lg mx-2" ><i
-                        class="fas fa-trash-alt fa-sm"></i></button>
-                  </div>
-                  <div class="col-10">
-                    <div class="card-body">
-                      <div id="Citacao"></div>
-                      <p class="card-text">
-                        Citação......
-                      </p>
-                      <div class="dropdown-divider"></div>
-                      <div id="referenciaCitacao"></div>
-                      <p class="card-text">
-                        Referência......
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
             </div>
           </div>
