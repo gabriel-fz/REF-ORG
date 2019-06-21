@@ -78,3 +78,41 @@ function listaReferencias(){
 }
 
 //---------Funções para a tela de citações---------
+
+function listaCitacoes(){
+  const cits = db.get('citacoes').value()
+  let c = document.querySelector('div#citacoes')
+  let mostraCitacoes = ''
+  for (let contador in cits) {
+      mostraCitacoes += `<div class="card my-2">
+                              <div class="row no-gutters">
+                                <div class="col-2 texto-centro">
+                                  <button class="btn btn-two btn-lg mx-2" data-toggle="modal" ><i class="fas fa-pen fa-sm"></i></button>
+                                  <button class="btn btn-two btn-lg mx-2" ><i
+                                      class="fas fa-trash-alt fa-sm"></i></button>
+                                </div>
+                                <div class="col-10">
+                                  <div class="card-body">
+                                    <div id="Citacao"></div>
+                                    <p class="card-text">
+                                      ${cits[contador].textCitacao}
+                                    </p>
+                                    <div class="dropdown-divider"></div>
+                                    <div id="referenciaCitacao"></div>
+                                    <p class="card-text">
+                                      ${cits[contador].textReferencia}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>`
+  }
+  c.innerHTML = mostraCitacoes
+}
+
+function adicionarCitacoes(){
+  let txtar = document.querySelector('textarea#txtReferenciac').value
+  let txtac = document.querySelector('textarea#txtCitacao').value
+  txtar && txtac ?  db.get('citacoes').push({id: `${db.get('citacoes').size().value()+1}`, textCitacao: `${txtac}`, textReferencia: `${txtar}`}).write()
+  : alert("Campos não preenchidos")
+}
