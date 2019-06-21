@@ -17,12 +17,15 @@ function listaBibliografia(){
 //---------Funções para a tela de referências bibliográficas---------
 
 function adicionarReferencias(){
-  let a = document.querySelector('textarea#txtReferencia').value
-  a ? db.get('referencias').push({
-        id: `${db.get('referencias').size().value()+1}`,
-        text: `${a}`
-      }).write()
-  : alert("Campo não preenchido");
+  let txta = document.querySelector('textarea#txtReferencia').value
+  txta ?  db.get('referencias').push({id: `${db.get('referencias').size().value()+1}`, text: `${txta}`}).write()
+  : alert("Campo não preenchido")
+}
+
+function editarReferencias(idRef){
+  let txta = document.querySelector(`textarea#novaReferencia${idRef}`).value
+  txta  ? db.get('referencias').find({id: `${idRef}`}).assign({text: `${txta}`}).write()
+  : alert("Campo não preenchido")
 }
 
 function excluirReferencias(idRef){
@@ -34,13 +37,13 @@ function excluirReferencias(idRef){
 
 function listaReferencias(){
   const refs = db.get('referencias').value()
-  let b = document.querySelector('div#referencias')
+  let r = document.querySelector('div#referencias')
   let mostraReferencias = ''
   for (let contador in refs) {
       mostraReferencias += `<div class="card my-2">
                               <div class="row no-gutters">
                                 <div class="col-2 texto-centro">
-                                  <button class="btn btn-two btn-lg mx-2"><i class="fas fa-pen fa-sm"></i></button>
+                                  <button class="btn btn-two btn-lg mx-2" data-toggle="modal" data-target="#Modal${refs[contador].id}"><i class="fas fa-pen fa-sm"></i></button>
                                   <button class="btn btn-two btn-lg mx-2" onclick="excluirReferencias(${refs[contador].id})"><i
                                       class="fas fa-trash-alt fa-sm"></i></button>
                                 </div>
@@ -52,7 +55,26 @@ function listaReferencias(){
                                   </div>
                                 </div>
                               </div>
-                            </div>`
+                            </div>
+                            
+                            <div class="modal fade" id="Modal${refs[contador].id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title">Editar</h5>
+                                </div>
+                                <div class="modal-body">
+                                  <textarea class="form-control mt-2" id="novaReferencia${refs[contador].id}" rows="3">${refs[contador].text}</textarea>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-one" onclick="editarReferencias(${refs[contador].id})">Salvar</button>
+                                  <button type="button" class="btn btn-one" data-dismiss="modal">Cancelar</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>`
   }
-  b.innerHTML = mostraReferencias
+  r.innerHTML = mostraReferencias
 }
+
+//---------Funções para a tela de citações---------
