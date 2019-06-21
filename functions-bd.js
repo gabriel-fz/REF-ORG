@@ -4,7 +4,7 @@ const adapter = new FileSync('db.json')
 const db = low(adapter)
 
 //---------Funções para a tela de bibliografia---------
-function listBibliografia(){
+function listaBibliografia(){
     const refs = db.get('referencias').sortBy('text').value()
     let b = document.querySelector('div#bibliografia')
     let mostraReferencias = ''
@@ -24,7 +24,14 @@ function adicionarReferencias(){
   }).write()
 }
 
-function listReferencias(){
+function excluirReferencias(idRef){
+  decisao = confirm("Você deseja mesmo deletar esta citação?")
+  if(decisao){
+    db.get('referencias').remove({id: `${idRef}`}).write()
+  }
+}
+
+function listaReferencias(){
   const refs = db.get('referencias').value()
   let b = document.querySelector('div#referencias')
   let mostraReferencias = ''
@@ -33,7 +40,7 @@ function listReferencias(){
                               <div class="row no-gutters">
                                 <div class="col-2 texto-centro">
                                   <button class="btn btn-two btn-lg mx-2"><i class="fas fa-pen fa-sm"></i></button>
-                                  <button class="btn btn-two btn-lg mx-2" onclick="excluir()"><i
+                                  <button class="btn btn-two btn-lg mx-2" onclick="excluirReferencias(${refs[contador].id})"><i
                                       class="fas fa-trash-alt fa-sm"></i></button>
                                 </div>
                                 <div class="col-10">
