@@ -88,8 +88,7 @@ function listaCitacoes(){
                               <div class="row no-gutters">
                                 <div class="col-2 texto-centro">
                                   <button class="btn btn-two btn-lg mx-2" data-toggle="modal" ><i class="fas fa-pen fa-sm"></i></button>
-                                  <button class="btn btn-two btn-lg mx-2" ><i
-                                      class="fas fa-trash-alt fa-sm"></i></button>
+                                  <button class="btn btn-two btn-lg mx-2" onclick="excluirCitacoes(${cits[contador].id})"><i class="fas fa-trash-alt fa-sm"></i></button>
                                 </div>
                                 <div class="col-10">
                                   <div class="card-body">
@@ -115,4 +114,11 @@ function adicionarCitacoes(){
   let txtac = document.querySelector('textarea#txtCitacao').value
   txtar && txtac ?  db.get('citacoes').push({id: `${db.get('citacoes').size().value()+1}`, textCitacao: `${txtac}`, textReferencia: `${txtar}`}).write()
   : alert("Campos não preenchidos")
+}
+
+function excluirCitacoes(idCit){
+  decisao = confirm("Você deseja mesmo deletar esta citação?")
+  if(decisao){
+    db.get('citacoes').remove({id: `${idCit}`}).write()
+  }
 }
