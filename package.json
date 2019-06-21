@@ -1,12 +1,12 @@
 {
-  "name": "electron-api-demos",
+  "name": "REF-ORG",
   "version": "1.0.0",
   "description": "Organizador de referências bibliográficas",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/gabriel-fz/REF-ORG",
   "keywords": [
     "Electron",
     "quick",
