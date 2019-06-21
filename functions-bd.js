@@ -18,10 +18,11 @@ function listaBibliografia(){
 
 function adicionarReferencias(){
   let a = document.querySelector('textarea#txtReferencia').value
-  db.get('referencias').push({
-    id: `${db.get('referencias').size().value()+1}`,
-    text: `${a}`
-  }).write()
+  a ? db.get('referencias').push({
+        id: `${db.get('referencias').size().value()+1}`,
+        text: `${a}`
+      }).write()
+  : alert("Campo não preenchido");
 }
 
 function excluirReferencias(idRef){
