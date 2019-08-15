@@ -1,2 +1,2 @@
 # REF-ORG
-Simples organizador de referências bibliográficas
+Um simples organizador de referências bibliográficas
